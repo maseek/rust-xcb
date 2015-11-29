@@ -31,8 +31,8 @@ pub struct extension;
 
 pub struct generic_iterator {
     data : *mut u8,
-    rem : int,
-    index : int
+    rem : i32,
+    index : i32
 }
 
 pub struct generic_reply {
@@ -46,7 +46,7 @@ pub struct generic_event {
     pub response_type : u8,
     pad0 : u8,
     sequence : u16,
-    pad : [u32,..7],
+    pad : [u32;7],
     full_sequence : u32
 }
 
@@ -57,7 +57,7 @@ pub struct ge_event {
     length : u32,
     event_type : u16,
     pad1 : u16,
-    pad : [u32,..5],
+    pad : [u32;5],
     full_sequence : u32
 }
 
@@ -69,18 +69,18 @@ pub struct generic_error {
     minor_code : u16,
     major_code : u8,
     pad0 : u8,
-    pad : [u32,..5],
+    pad : [u32;5],
     full_sequence : u32
 }
 
 pub struct void_cookie {
-    sequence : int
+    sequence : i32
 }
 
 pub struct auth_info {
-    namelen : int,
+    namelen : i32,
     name : *mut u8,
-    datalen : int,
+    datalen : i32,
     data : *mut u8
 }
 
